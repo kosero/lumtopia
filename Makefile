@@ -3,7 +3,7 @@ CFLAGS = -std=c11 -pedantic -Wall -Wextra -O3 -Iinc
 LDFLAGS = -lraylib -lm -ldl -lpthread -lGL
 SRC_DIR = src
 INC_DIR = inc
-BUILD_DIR = build
+BUILD_DIR = output 
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
