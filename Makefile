@@ -1,5 +1,6 @@
 CC = clang
-CFLAGS = -lraylib -std=c11 -pedantic -Wall -Wextra -O3  -Iinc
+CFLAGS = -std=c11 -pedantic -Wall -Wextra -O3 -Iinc
+LDFLAGS = -lraylib -lm -ldl -lpthread -lGL
 SRC_DIR = src
 INC_DIR = inc
 BUILD_DIR = build
@@ -13,7 +14,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(TARGET)
 
 .PHONY: all clean
 
