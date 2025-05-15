@@ -1,9 +1,10 @@
 CC = clang
-CFLAGS = -std=c11 -pedantic -Wall -Wextra -O3 -Iinc
+CFLAGS = -std=c11 -pedantic -Wall -Wextra -O3 -I$(INC_DIR)
 LDFLAGS = -lraylib -lm -ldl -lpthread -lGL
+
 SRC_DIR = src
 INC_DIR = inc
-BUILD_DIR = output 
+BUILD_DIR = output
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
